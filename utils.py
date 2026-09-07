@@ -17,7 +17,7 @@ def fetch_data():
     response = requests.post(API_FETCH_URL)
     if response.status_code == 200:
         df = pd.DataFrame(response.json())
-        print(df)
+        pprint(df)
         df.rename(columns={
             'name': 'Имя Менедежра', 
             'is_active': 'Активен', 
