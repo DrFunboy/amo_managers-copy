@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 import streamlit as st
 import json
+from pprint import pprint
 
 def load_env_variables():
     load_dotenv()
@@ -35,6 +36,8 @@ def fetch_data():
         df.index = range(1, len(df) + 1)
         df.reset_index(inplace=True)
         df.rename(columns={'index': '№'}, inplace=True)
+
+        pprint(df)
         return df
     else:
         st.error('Ошибка при получении данных')
