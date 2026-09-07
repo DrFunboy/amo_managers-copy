@@ -4,7 +4,6 @@ import requests
 import pandas as pd
 import streamlit as st
 import json
-import pprint
 
 def load_env_variables():
     load_dotenv()
@@ -17,7 +16,7 @@ def fetch_data():
     response = requests.post(API_FETCH_URL)
     if response.status_code == 200:
         df = pd.DataFrame(response.json())
-        pprint(df)
+        print(df)
         df.rename(columns={
             'name': 'Имя Менедежра', 
             'is_active': 'Активен', 
@@ -37,7 +36,7 @@ def fetch_data():
         df.reset_index(inplace=True)
         df.rename(columns={'index': '№'}, inplace=True)
 
-        pprint(df)
+        print(df)
         return df
     else:
         st.error('Ошибка при получении данных')
