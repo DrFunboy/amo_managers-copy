@@ -16,7 +16,7 @@ def fetch_data():
     response = requests.post(API_FETCH_URL)
     if response.status_code == 200:
         df = pd.DataFrame(response.json())
-        df = [u for u in df if u.is_deleted !== 0]
+        df = [u for u in df if u.is_deleted != 0]
         df.rename(columns={
             'name': 'Имя Менедежра', 
             'is_active': 'Активен', 
