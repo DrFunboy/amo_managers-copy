@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import streamlit as st
 import json
-from pprint import pprint
+import pprint
 
 def load_env_variables():
     load_dotenv()
